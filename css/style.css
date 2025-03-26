@@ -1,0 +1,472 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.logo img {
+  height: 40px;
+    user-select: none;
+-webkit-user-drag: none; 
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+}
+
+.social-icons a img {
+  height: 25px;
+  margin-right: 10px;
+  border-radius: 5px;
+  user-select: none;
+  -webkit-user-drag: none; 
+}
+
+.offer {
+  width: 300px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.offer img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  user-select: none;
+  -webkit-user-drag: none; 
+
+}
+
+.offer hr {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.offer-button {
+  display: inline-block;
+  background-color: rgb(10, 10, 10);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+  width: 300px;
+}
+
+
+.offer-button:hover {
+  background-color: #333;
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures it stays on top of other content */
+  transition: opacity 0.5s ease-out;
+}
+
+.loading-screen img {
+  width: 50px; /* Adjust size as needed */
+  height: auto;
+  animation: pulse 1.5s infinite;
+  user-select: none;
+  -webkit-user-drag: none;   
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+      opacity: 1;
+  }
+  50% {
+      transform: scale(1.1);
+      opacity: 0.7;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+/* Ensure footer is styled properly */
+.footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 12px;
+  color: #666;
+  background-color: #f4f4f4;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  gap: 15px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.sno {
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.shoe-box {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shoe-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  cursor: pointer; /* Show pointer cursor */
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.9); /* Black with opacity */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+
+.image-container {
+  width: 90%; /* Adjust the width as needed */
+  max-width: 500px; /* Set a maximum width */
+  position: relative;
+  margin: auto;
+  margin-top: 70%;
+  aspect-ratio: 1; /* Ensures the container is square */
+  border: 2px solid white; /* Border around the image */
+  border-radius: 10px; /* Rounded corners */
+  background-color: rgba(255, 255, 255, 0.8); /* Background color */
+  padding: 10px; /* Space between border and image */
+  margin-bottom: 90%;
+}
+
+.modal-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container */
+  margin-bottom: 15px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.size-selector {
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+}
+.size-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+.size-buttons {
+    display: flex;
+    gap: 5px;
+}
+.size-button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+.size-button:hover {
+    background-color: #f0f0f0;
+}
+.size-button.selected {
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+.confirm1 {
+  display: inline-block;
+  background-color: rgb(255, 180, 0);
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  height: 35px;
+  font-size: 17px;
+}
+
+
+.selected-pair img {
+  max-width: 50px; /* Adjust the size as needed */
+  height: auto;
+}
+
+.selected-pair div {
+  margin-top: 5px; /* Space between image and text */
+}
+
+#selected-pair {
+    position: fixed;
+    bottom: 10px;
+    left: 10px; /* Keep the left margin */
+    right: 10px; /* Set the right margin to match */
+    padding: 10px;
+    background: #fff; 
+    border: 1px solid #01fe1f; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8); 
+    display: flex; /* Use flex for layout */
+    align-items: center; /* Center items vertically */
+}
+
+#selected-image {
+  width: 100px; 
+  height: 100px; 
+  object-fit: cover; 
+  float: left; 
+  margin-right: 10px; 
+}
+
+#selected-size {
+  font-weight: bold; 
+}
+
+.cpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  padding: 0 1px; /* Reduced padding to decrease the gap */
+}
+
+.pair-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;  
+  max-width: 300px;  
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.small-image img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 4px;
+}
+
+.pair-box p {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.pair-button {
+  background-color: black;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px; /* Spacing above the button */
+  font-size: 14px;
+}
+
+.pair-button:hover {
+  background-color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.confirm-container {
+  background: linear-gradient(135deg, #cccccc, #ffffff);
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.confirm-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.confirm-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+
+.confirm-info {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.confirm-info h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.confirm-info p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.confirm-change-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirm-button {
+  width: 100%;
+  padding: 15px;
+  background-color: rgb(255, 180, 0);
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.confirm-order-details {
+  margin-top: 10px;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.confirm-order-details select {
+  width: 100%;
+  padding: 5px;
+}
+
+
+.cd-pair-container {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(145deg, #d9d9d9, #a5a5a5);
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+.cd-pair-image {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 15px;
+  overflow: hidden;
+}
+.cd-pair-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cd-pair-details {
+  font-size: 16px;
+}
+.cd-pair-details .cd-size {
+  font-size: 14px;
+  color: #333;
+}
